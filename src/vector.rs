@@ -46,8 +46,8 @@ impl Vector3 {
         }
     }
 
-    pub fn deserialize_normalized<D>(deserializer: D) -> Result<Vector3, D::Error>
-        where D: Deserializer
+    pub fn deserialize_normalized<'de, D>(deserializer: D) -> Result<Vector3, D::Error>
+        where D: Deserializer<'de>
     {
         let v3 = Vector3::deserialize(deserializer)?;
         Ok(v3.normalize())

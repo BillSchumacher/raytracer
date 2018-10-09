@@ -88,8 +88,8 @@ impl Add for Color {
     }
 }
 
-pub fn load_texture<D>(deserializer: D) -> Result<DynamicImage, D::Error>
-    where D: Deserializer
+pub fn load_texture<'de, D>(deserializer: D) -> Result<DynamicImage, D::Error>
+    where D: Deserializer<'de>
 {
     let path = PathBuf::deserialize(deserializer)?;
     Ok(image::open(path).expect("Unable to open texture file"))
