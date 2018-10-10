@@ -12,7 +12,7 @@ mod matrix;
 use scene::Scene;
 use image::{DynamicImage, GenericImage, ImageBuffer, Rgba};
 
-use rendering::{Ray, cast_ray};
+pub use rendering::{Ray, cast_ray};
 
 pub fn render(scene: &Scene) -> DynamicImage {
     let mut image = DynamicImage::new_rgb8(scene.width, scene.height);
